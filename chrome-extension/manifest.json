@@ -1,0 +1,34 @@
+{
+  "name": "Pravanjan",
+  "description": "test Share ",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Pravanjan test",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "service_worker": "default.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://localhost:8000/*"],
+      "js": ["bundle.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "host_permissions": ["http://localhost:8000/"],
+  "permissions": [
+    "cookies",
+    "sessions",
+    "activeTab",
+    "tabs",
+    "storage",
+    "browsingData"
+  ],
+  "externally_connectable": {
+    "ids": ["hiolbcbileegpkelihkfhdjnkgmaddih"],
+    "matches": ["http://localhost:8080/"]
+  },
+  "content_security_policy": {}
+}
